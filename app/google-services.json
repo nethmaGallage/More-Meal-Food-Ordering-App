@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "206797231333",
+    "firebase_url": "https://more-meal-7891f-default-rtdb.firebaseio.com",
+    "project_id": "more-meal-7891f",
+    "storage_bucket": "more-meal-7891f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:206797231333:android:28b8006889b301d85ab00c",
+        "android_client_info": {
+          "package_name": "com.example.moremeal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "206797231333-kl82935j9o4eo739mlr2bqho5gthvjuo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.moremeal",
+            "certificate_hash": "a10037d65a701f29ff6d80144f3a7f5e8af6da84"
+          }
+        },
+        {
+          "client_id": "206797231333-6nno7hublmk5mn3p2cnesid513l6ig4f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDk5FG51UNKuJXT2o6iGUFQb5YNh0On8oc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "206797231333-6nno7hublmk5mn3p2cnesid513l6ig4f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
