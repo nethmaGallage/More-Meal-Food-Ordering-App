@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/gradient_background"
+    tools:context=".CartViewActivity">
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="537dp"
+        android:layout_marginTop="66dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="129dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3.8in"
+        android:text="Total Cost"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tprice"
+        android:layout_width="129dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3.8in"
+        android:text="Price"
+        android:layout_alignParentEnd="true"
+        android:fontFamily="sans-serif-black"
+        android:textSize="20dp" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4in"
+        android:layout_marginLeft="150dp"
+        android:background="@color/myColor4"
+        android:fontFamily="serif-monospace"
+        android:textSize="22dp"
+        android:text="Purchase" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Your food Cart"
+        android:layout_marginStart="100dp"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="33dp" />
+
+</RelativeLayout>

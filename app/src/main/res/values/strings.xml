@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">More Meal</string>
+    <string name="txtView1">Bacon Pizza</string>
+    <string name="txtView2">Please Select the Size...</string>
+    <string name="txtView3">Number of Pizzas....</string>
+    <string name="txtNumber1">1</string>
+    <string name="button1">Add to cart</string>
+    <string name="price1">Rs .900//</string>
+    <string name="price2">Rs. 1500//</string>
+    <string name="price3">Rs. 2300//</string>
+    <string name="size1">Medium</string>
+    <string name="Size2">Large</string>
+    <string name="Size3">Premium</string>
+
+
+</resources>
