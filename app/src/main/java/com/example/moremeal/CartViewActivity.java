@@ -11,6 +11,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,36 +58,29 @@ public class CartViewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_cart_view);
 
        context = this;
         //new Helper(context);
 
-        //Intent intent = getIntent();
-       // String message = intent.getStringExtra(AddToCartActivity.EXTRA_MESSAGE);
-       // String message1 = intent.getStringExtra(AddToCartActivity.EXTRA_MESSAGE1);
-       // String message2 = intent.getStringExtra(AddToCartActivity.EXTRA_MESSAGE2);
-       // String message3 = intent.getStringExtra(AddToCartActivity.EXTRA_MESSAGE3);
-       // String message4 = intent.getStringExtra(AddToCartActivity.EXTRA_MESSAGE4);
-       // String message5 = intent.getStringExtra(AddToCartActivity.EXTRA_MESSAGE5);
-       // String message6 = intent.getStringExtra(AddToCartActivity.EXTRA_MESSAGE6);
+        ImageView rightIcon = findViewById(R.id.right_icon);
+        rightIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        //now going to convert those into real values
-     //   pizzaSize = message;
-       // quantity = message1;
-       // price = message2;
-       // pizzaName = message3;
-
-        //Integer myQuantity = Integer.parseInt(quantity);
-       // Double pri = Double.parseDouble(price);
-       // Double medium = Double.parseDouble(message4);
-       // Double large = Double.parseDouble(message5);
-        //Double premium = Double.parseDouble(message6);
+                Context cnn = getMyContext();
+                Intent intent2;
+                intent2 = new Intent(cnn, CartViewActivity.class);
+                cnn.startActivity(intent2);
 
 
-       // ob = new Model();
-       // Integer s= insert2();
-        //insert(pizzaName, 1, myQuantity, pri, pizzaSize, medium, large, premium);
+
+            }
+        });
+
+
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
         list = new ArrayList<>();
@@ -103,7 +98,7 @@ public class CartViewActivity extends AppCompatActivity {
                     Model obj = ds.getValue(Model.class);
                     obj.setMyd(key);
                     list.add(obj);
-                  // total = total+ obj.getNowPrice();
+
                 }
 
                 //  Integer mys=  list.size();
@@ -115,11 +110,34 @@ public class CartViewActivity extends AppCompatActivity {
                     total = total + list.get(i).getNowPrice();
                 }
 
+
                 TextView textView = (TextView) findViewById(R.id.tprice);
                 String tt = " "+total;
                 textView.setText(tt);
+
+                if (total == 0.00){
+
+                    TextView notify = (TextView)findViewById(R.id.textViewNotify);
+                    notify.setText("Your cart is Empty..Add some foods.");
+                }
+
+
                 myAdapter = new MyAdapter(list); //, myList
                 recyclerView.setAdapter(myAdapter);
+
+                Button myButton = findViewById(R.id.buttonPurchase);
+                myButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Context cnt = getMyContext();
+                        Intent myIntent = new Intent(cnt, AfterCartActivity.class);
+                        myIntent.putExtra(EXTRA_MESSAGE, tt);
+                        cnt.startActivity(myIntent);
+
+                    }
+                });
+
+
             }
 
             @Override
@@ -229,6 +247,13 @@ public class CartViewActivity extends AppCompatActivity {
         return context;
     }
 
+    public  void purchaseAll(View view){
+
+        Intent myIntent = new Intent(this, AfterCartActivity.class);
+        myIntent.putExtra(EXTRA_MESSAGE, "");
+
+
+    }
 
     /////modification
     //public  TextView getMtTextView(){

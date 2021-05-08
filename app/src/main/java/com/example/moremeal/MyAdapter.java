@@ -93,7 +93,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 deleteItemOnDb(delKey);
                String nme = temp.getName();
 
-
+                //TextView removeChanged;
 
                 //calling a method to delete this item in firebase
              //  deleteItemOnDb(nme);
@@ -111,11 +111,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 String nme = temp2.getName();
                 Double price = temp2.getNowPrice();
                 Integer quantity = temp2.getQuantity();
+                String pr = ""+price;
 
                Intent intent;
                Context cn = CartViewActivity.getMyContext();
                intent = new Intent(cn, AfterCartActivity.class);
-               intent.putExtra(EXTRA_MESSAGE, "");
+               intent.putExtra(EXTRA_MESSAGE, pr);
                cn.startActivity(intent);
 
             }

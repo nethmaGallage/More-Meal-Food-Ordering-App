@@ -2,10 +2,12 @@ package com.example.moremeal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -39,6 +41,7 @@ public class AddToCartActivity extends AppCompatActivity {
     Double price1;
     Double price2;
     Double price3;
+    private static Context context;
 
 
     @Override
@@ -46,7 +49,25 @@ public class AddToCartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_to_cart);
 
+
         ob = new Model();
+        context = this;
+
+        ImageView rightIcon = findViewById(R.id.right_icon);
+        rightIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Context cnn = getAddToCartContext();
+                Intent intent2;
+                intent2 = new Intent(cnn, CartViewActivity.class);
+                cnn.startActivity(intent2);
+
+
+
+            }
+        });
+
 
     }
 
@@ -63,51 +84,61 @@ public class AddToCartActivity extends AppCompatActivity {
         RadioGroup radioGroup = (RadioGroup) findViewById(R.id.pizza_size);
 
 
-        int selectedId = radioGroup.getCheckedRadioButtonId();
+            int selectedId = radioGroup.getCheckedRadioButtonId();
 
-        RadioButton radioButton = (RadioButton) findViewById(selectedId);
+            quantity   = editText.getText().toString();
 
-        pizzaSize = radioButton.getText().toString();
-        quantity   = editText.getText().toString();
+            if(selectedId == -1){
 
-
-
-
-
-        if (pizzaSize.equals("Medium")){
+             Toast.makeText(getApplicationContext(), "Please select a pizza size", Toast.LENGTH_SHORT).show();
+            }
+            else if (quantity.equals("0")){
 
 
-            price = medium_price;
+                Toast.makeText(getApplicationContext(), "Please select a quantity", Toast.LENGTH_SHORT).show();
+            }
 
-        }
-        else if(pizzaSize.equals("Large")){
+            else{
 
-            price = large_price;
+                RadioButton radioButton = (RadioButton) findViewById(selectedId);
+                pizzaSize = radioButton.getText().toString();
+                //quantity   = editText.getText().toString();
 
-        }
-        else{
 
-            price = premium_price;
-        }
+                if (pizzaSize.equals("Medium")){
 
-        quan = Integer.parseInt(quantity);
-        rightPrice = Double.parseDouble(price);
-        price1 = Double.parseDouble(medium_price);
-        price2 = Double.parseDouble(large_price);
-        price3 = Double.parseDouble(premium_price);
 
-        insert(pizzaName, 1, quan, rightPrice, pizzaSize, price1, price2, price3);
+                    price = medium_price;
 
-        // Toast.makeText(MainActivity.this, pizzaSize, Toast.LENGTH_SHORT).show();
-     //   intent.putExtra(EXTRA_MESSAGE, pizzaSize);
-        //intent.putExtra(EXTRA_MESSAGE1, quantity);
-      //  intent.putExtra(EXTRA_MESSAGE2, price);
-        //intent.putExtra(EXTRA_MESSAGE3, pizzaName);
-       // intent.putExtra(EXTRA_MESSAGE4, medium_price);
-       // intent.putExtra(EXTRA_MESSAGE5, large_price);
-       // intent.putExtra(EXTRA_MESSAGE6, premium_price);
+                }
+                else if(pizzaSize.equals("Large")){
 
-        startActivity(intent);
+                    price = large_price;
+
+                }
+                else{
+
+                    price = premium_price;
+                }
+
+
+
+                quan = Integer.parseInt(quantity);
+                rightPrice = Double.parseDouble(price);
+                price1 = Double.parseDouble(medium_price);
+                price2 = Double.parseDouble(large_price);
+                price3 = Double.parseDouble(premium_price);
+
+                insert(pizzaName, 1, quan, rightPrice, pizzaSize, price1, price2, price3);
+
+
+
+                startActivity(intent);
+
+
+
+
+            }
 
 
     }
@@ -121,7 +152,7 @@ public class AddToCartActivity extends AppCompatActivity {
         try {
             //Double mpr = 6900.00+s;
             ob.setName(pizzaName);
-            ob.setImage(R.drawable.pizza);
+            ob.setImage(R.drawable.pizza3);
             ob.setQuantity(quantity);
             Double tot = price * quantity;
             ob.setNowPrice(tot);
@@ -149,6 +180,14 @@ public class AddToCartActivity extends AppCompatActivity {
 
     }
 
+
+
+
+    public static Context getAddToCartContext(){
+
+        // Context con = getApplicationContext();
+        return context;
+    }
 
 
 

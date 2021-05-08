@@ -8,12 +8,13 @@
     android:background="@drawable/gradient_background"
     tools:context=".CartViewActivity">
 
+    <include layout="@layout/toolbar"></include>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="537dp"
-        android:layout_marginTop="66dp" />
+        android:layout_height="529dp"
+        android:layout_marginTop="125dp" />
 
     <TextView
         android:id="@+id/textView8"
@@ -35,7 +36,7 @@
         android:textSize="20dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonPurchase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4in"
@@ -46,13 +47,15 @@
         android:text="Purchase" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/textViewNotify"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-condensed"
-        android:text="Your food Cart"
-        android:layout_marginStart="100dp"
-        android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="33dp" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="80dp"
+        android:fontFamily="serif-monospace"
+        android:text="Hello Customer.."
+        android:textColor="@color/white"
+        android:textSize="30dp" />
+
 
 </RelativeLayout>

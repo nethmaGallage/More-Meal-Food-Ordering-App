@@ -9,7 +9,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoreMeal">
-        <activity android:name=".SecondCartViewActivity"></activity>
         <activity android:name=".UpdateItemActivity" />
         <activity android:name=".AfterCartActivity" />
         <activity android:name=".CartViewActivity" />

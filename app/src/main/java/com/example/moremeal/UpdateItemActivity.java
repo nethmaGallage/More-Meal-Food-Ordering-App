@@ -3,11 +3,13 @@ package com.example.moremeal;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -36,6 +38,11 @@ public class UpdateItemActivity extends AppCompatActivity {
     String premium_price;
     Model ob;
     String pizzaName;
+    String globTotal = "";
+    private static Context context;
+    String beginPrice = "";
+
+    public static  final String EXTRA_MESSAGE= "com.example.myfirstapp.MESSAGE";
 
 
     @Override
@@ -44,6 +51,26 @@ public class UpdateItemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_update_item);
 
         ob = new Model();
+        context = this;
+
+        ImageView rightIcon = findViewById(R.id.right_icon);
+        rightIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Context cnn = getUpdateItemContext();
+                Intent intent2;
+                intent2 = new Intent(cnn, CartViewActivity.class);
+                cnn.startActivity(intent2);
+
+
+
+            }
+        });
+
+
+
+
         //old values
         Intent intent = getIntent();
         String key = intent.getStringExtra(CartViewActivity.EXTRA_MESSAGE);
@@ -55,7 +82,7 @@ public class UpdateItemActivity extends AppCompatActivity {
         String message6 = intent.getStringExtra(CartViewActivity.EXTRA_MESSAGE6);
         String message7 = intent.getStringExtra(CartViewActivity.EXTRA_MESSAGE7);
 
-
+        beginPrice = message7;
 
         textView1 = (TextView)findViewById(R.id.row1col2);
         textView2 = (TextView)findViewById(R.id.row2col2);
@@ -106,53 +133,63 @@ public class UpdateItemActivity extends AppCompatActivity {
 
         int selectedId = radioGroup.getCheckedRadioButtonId();
 
-        RadioButton radioButton = (RadioButton) findViewById(selectedId);
+        if(selectedId == -1){
 
-        size = radioButton.getText().toString();
-
-
-
-
+           Toast.makeText(getApplicationContext(), "Please select a pizza size", Toast.LENGTH_SHORT).show();
+        }
+        else if (q.equals("0")){
 
 
-        if (size.equals("Medium")){
+            Toast.makeText(getApplicationContext(), "Please select a quantity", Toast.LENGTH_SHORT).show();
+        }
+        else {
 
 
-            price = medium_price;
+            RadioButton radioButton = (RadioButton) findViewById(selectedId);
+            size = radioButton.getText().toString();
+
+           if (size.equals("Medium")){
+
+
+                price = medium_price;
+
+           }
+           else if(size.equals("Large")){
+
+                price = large_price;
+
+           }
+            else{
+
+                price = premium_price;
+            }
+
+
+              Integer quantity = Integer.parseInt(q);
+              Double rightPrice = Double.parseDouble(price);
+              Double price1 = Double.parseDouble(medium_price);
+              Double price2 = Double.parseDouble(large_price);
+              Double price3 = Double.parseDouble(premium_price);
+
+              Double total = rightPrice * quantity;
+              String totalPrice = ""+total;
+              globTotal = totalPrice;
+
+              textView1.setText(pizzaName);
+              textView2.setText(q);
+              textView3.setText(size);
+              textView4.setText(totalPrice);
+
+
+             updateOnDb(keyValue, pizzaName, 1, quantity, rightPrice, size, price1, price2, price3);
+
+
+
+
+
+
 
         }
-        else if(size.equals("Large")){
-
-            price = large_price;
-
-        }
-        else{
-
-            price = premium_price;
-        }
-
-
-
-
-
-        Integer quantity = Integer.parseInt(q);
-        Double rightPrice = Double.parseDouble(price);
-        Double price1 = Double.parseDouble(medium_price);
-        Double price2 = Double.parseDouble(large_price);
-        Double price3 = Double.parseDouble(premium_price);
-
-        Double total = rightPrice * quantity;
-        String totalPrice = ""+total;
-
-        textView1.setText(pizzaName);
-        textView2.setText(q);
-        textView3.setText(size);
-        textView4.setText(totalPrice);
-
-
-        updateOnDb(keyValue, pizzaName, 1, quantity, rightPrice, size, price1, price2, price3);
-
-
 
 
     }
@@ -172,7 +209,7 @@ public class UpdateItemActivity extends AppCompatActivity {
                 if(snapshot.hasChild(uKey)){
 
                     ob.setName(uPizzaName);
-                    ob.setImage(R.drawable.pizza);
+                    ob.setImage(R.drawable.pizza3);
                     ob.setQuantity(uQuantity);
                     Double tot = uPrice * uQuantity;
                     ob.setNowPrice(tot);
@@ -201,16 +238,42 @@ public class UpdateItemActivity extends AppCompatActivity {
 
 
 
+    }
+
+
+    public static Context getUpdateItemContext(){
+
+        // Context con = getApplicationContext();
+        return context;
+    }
 
 
 
+    public void goToPurchase(View view){
 
 
+        if (globTotal.equals("")){
+            Intent intent = new Intent(this, AfterCartActivity.class);
+            intent.putExtra(EXTRA_MESSAGE, beginPrice);
+            startActivity(intent);
 
+
+        }else {
+
+            Intent intent = new Intent(this, AfterCartActivity.class);
+            intent.putExtra(EXTRA_MESSAGE, globTotal);
+            startActivity(intent);
+
+
+        }
 
 
 
 
 
     }
+
+
+
+
 }
