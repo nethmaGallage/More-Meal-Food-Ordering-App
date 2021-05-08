@@ -2,8 +2,6 @@ package com.example.moremeal;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,8 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -36,7 +32,7 @@ public class AddRiders extends AppCompatActivity {
         email =findViewById(R.id.txtEmail);
         address=findViewById(R.id.txtAdress);
         vehNumber = findViewById(R.id.txtVehicle);
-        subBtn = findViewById(R.id.btnSubmit);
+        subBtn = findViewById(R.id.btnupdate);
 
         Ri = new AddRiderdb();
 
@@ -49,17 +45,6 @@ public class AddRiders extends AppCompatActivity {
                 reference = FirebaseDatabase.getInstance().getReference().child("AddRiders");
 
 
-                    if (TextUtils.isEmpty(name.getText().toString()))
-                        Toast.makeText(getApplicationContext(),  "Please enter the Name " , Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(mobile.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter the Mobile " , Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(email.getText().toString()))
-                        Toast.makeText(getApplicationContext(), "Please enter the " , Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(address.getText().toString()))
-                        Toast.makeText(getApplicationContext(),  "Please enter the " , Toast.LENGTH_SHORT).show();
-                    else if (TextUtils.isEmpty(vehNumber.getText().toString()))
-                        Toast.makeText(getApplicationContext(),  "Please enter the " , Toast.LENGTH_SHORT).show();
-                    else {
 
 
                         Ri.setName(name.getText().toString().trim());
@@ -68,14 +53,13 @@ public class AddRiders extends AppCompatActivity {
                         Ri.setVehicleNum(vehNumber.getText().toString().trim());
                         Ri.setMobile(mobile.getText().toString().trim());
 
-                        reference.push().setValue(Ri);
+                        reference.child("rider1").setValue(Ri);
                         Toast.makeText(getApplicationContext(), "Added Successfull!..", Toast.LENGTH_SHORT).show();
 
                         /// intent start
-                        Intent h= new Intent(getApplicationContext(),AddRiderTable.class);
-                        startActivity(h);
+
                     }
-            }
+           
 
             });
 

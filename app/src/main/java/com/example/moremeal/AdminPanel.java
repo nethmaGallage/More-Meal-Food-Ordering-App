@@ -7,17 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class AdminPanel extends AppCompatActivity {
 
-    Button button1,button2;
+    Button button1,button2,button3,button4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_admin_panel);
 
         button1 = findViewById(R.id.btnaddrd);
         button2 = findViewById(R.id.btnfdback);
+        button3 = findViewById(R.id.btnDetails);
+        button4 = findViewById(R.id.button);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -30,8 +32,24 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent j = new Intent(getApplicationContext(),Feedbacks.class);
+                Intent j = new Intent(getApplicationContext(),Insert.class);
                 startActivity(j);
+            }
+
+        });
+
+        button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent k = new Intent(getApplicationContext(), AddRiderTable.class);
+                startActivity(k);
+            }
+        });
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent k = new Intent(getApplicationContext(), FeedbackView.class);
+                startActivity(k);
             }
         });
     }

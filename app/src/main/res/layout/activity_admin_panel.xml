@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".AdminPanel">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -35,7 +35,7 @@
         android:layout_marginBottom="52dp"
         android:text="Welcome to Admin Panel"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnsales"
+        app:layout_constraintBottom_toTopOf="@+id/btnDetails"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
@@ -52,12 +52,12 @@
         app:srcCompat="@drawable/logo" />
 
     <Button
-        android:id="@+id/btnsales"
+        android:id="@+id/btnDetails"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginBottom="36dp"
         android:background="@drawable/btn"
-        android:text="Daily Sales"
+        android:text="Riders Details"
         android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -92,5 +92,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        tools:layout_editor_absoluteX="172dp"
+        tools:layout_editor_absoluteY="582dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

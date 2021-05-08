@@ -126,7 +126,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
             <Button
-                android:id="@+id/btnSubmit"
+                android:id="@+id/btnupdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -141,8 +141,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:text="Update"
-                app:layout_constraintStart_toStartOf="@+id/btnSubmit"
-                app:layout_constraintTop_toBottomOf="@+id/btnSubmit" />
+                app:layout_constraintStart_toStartOf="@+id/btnupdate"
+                app:layout_constraintTop_toBottomOf="@+id/btnupdate" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
