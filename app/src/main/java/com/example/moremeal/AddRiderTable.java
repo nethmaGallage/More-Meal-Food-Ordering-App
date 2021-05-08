@@ -60,6 +60,23 @@ public class  AddRiderTable extends AppCompatActivity {
 
     }
 
+    public void updateData(View view){
+
+        dbRef = FirebaseDatabase.getInstance().getReference();
+
+        dbRef.child("AddRiders").child("rider1").child("name").setValue(name.getText().toString().trim());
+        dbRef.child("AddRiders").child("rider1").child("mobile").setValue(mobile.getText().toString().trim());
+        dbRef.child("AddRiders").child("rider1").child("email").setValue(email.getText().toString().trim());
+        dbRef.child("AddRiders").child("rider1").child("address").setValue(address.getText().toString().trim());
+        dbRef.child("AddRiders").child("rider1").child("vehicleNum").setValue(vehicle.getText().toString().trim());
+
+        Toast.makeText(getApplicationContext(), "Update data successfully", Toast.LENGTH_SHORT).show();
+
+        /*Intent intent = new Intent(changePaymentDetails.this,Payment1.class);
+        startActivity(intent);*/
+
+    }
+
 
 
 
