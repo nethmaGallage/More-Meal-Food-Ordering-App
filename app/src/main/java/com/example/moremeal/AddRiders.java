@@ -45,23 +45,34 @@ public class AddRiders extends AppCompatActivity {
                 reference = FirebaseDatabase.getInstance().getReference().child("AddRiders");
 
 
+                if (TextUtils.isEmpty(name.getText().toString()))
+                    Toast.makeText(getApplicationContext(),  "Please enter the Name " , Toast.LENGTH_SHORT).show();
+                else if (TextUtils.isEmpty(mobile.getText().toString()))
+                    Toast.makeText(getApplicationContext(), "Please enter the Mobile " , Toast.LENGTH_SHORT).show();
+                else if (TextUtils.isEmpty(email.getText().toString()))
+                    Toast.makeText(getApplicationContext(), "Please enter the " , Toast.LENGTH_SHORT).show();
+                else if (TextUtils.isEmpty(address.getText().toString()))
+                    Toast.makeText(getApplicationContext(),  "Please enter the " , Toast.LENGTH_SHORT).show();
+                else if (TextUtils.isEmpty(vehNumber.getText().toString()))
+                    Toast.makeText(getApplicationContext(),  "Please enter the " , Toast.LENGTH_SHORT).show();
+                else {
 
 
-                        Ri.setName(name.getText().toString().trim());
-                        Ri.setAddress(address.getText().toString().trim());
-                        Ri.setEmail(email.getText().toString().trim());
-                        Ri.setVehicleNum(vehNumber.getText().toString().trim());
-                        Ri.setMobile(mobile.getText().toString().trim());
+                    Ri.setName(name.getText().toString().trim());
+                    Ri.setAddress(address.getText().toString().trim());
+                    Ri.setEmail(email.getText().toString().trim());
+                    Ri.setVehicleNum(vehNumber.getText().toString().trim());
+                    Ri.setMobile(mobile.getText().toString().trim());
 
-                        reference.child("rider1").setValue(Ri);
-                        Toast.makeText(getApplicationContext(), "Added Successfull!..", Toast.LENGTH_SHORT).show();
+                    reference.child("rider1").setValue(Ri);
+                    Toast.makeText(getApplicationContext(), "Added Successfull!..", Toast.LENGTH_SHORT).show();
 
-                        /// intent start
+                    /// intent start
 
-                    }
-           
+                }
+            }
 
-            });
+        });
 
     }
 }
