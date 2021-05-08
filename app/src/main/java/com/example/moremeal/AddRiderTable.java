@@ -77,8 +77,13 @@ public class  AddRiderTable extends AppCompatActivity {
 
     }
 
+    public void deleteData(View view){
 
+        DatabaseReference delRef = FirebaseDatabase.getInstance().getReference().child("AddRiders").child("rider1");
+        delRef.removeValue();
 
+        Toast.makeText(getApplicationContext(), "Deleted Details", Toast.LENGTH_SHORT).show();
 
+    }
 
 }
