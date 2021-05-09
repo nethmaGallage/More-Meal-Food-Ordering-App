@@ -43,12 +43,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     Model temp3;
     DatabaseReference ref;
     TextView myTextView;
-//, ArrayList<String> keys
+
     public MyAdapter( ArrayList<Model> list){
 
 
         this.list = list;
-        //myKeys = keys;
+
 
 
     }
@@ -57,7 +57,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-       // view = LayoutInflater.from(mContext).inflate(R.layout.each_item, parent, false);
+
         view = LayoutInflater.from(parent.getContext()).inflate(R.layout.each_item, parent, false);
 
         return new MyViewHolder(view);
@@ -66,12 +66,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
-       // String key = myKeys.get(position);
+
         String key2 = list.get(position).getMyd();
         Double price = list.get(position).getNowPrice();
         String mySize = list.get(position).getNowSize();
         String txt = list.get(position).getName() +" "+ price;
-        //String txt = list.get(position).getName() +"  "+ mySize;
+
         holder.name.setText(txt);
        // holder.name.setText(key2);
         holder.tSize.setText(mySize);

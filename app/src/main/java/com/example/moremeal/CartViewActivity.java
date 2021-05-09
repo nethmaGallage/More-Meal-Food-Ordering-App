@@ -101,9 +101,6 @@ public class CartViewActivity extends AppCompatActivity {
 
                 }
 
-                //  Integer mys=  list.size();
-              //  Double mp = 500.00+ mys;
-               // list.add(new Model("pizzaMania", R.drawable.pizza, mys,  mp));
 
                 for(int i=0; i<list.size(); i++){
 
@@ -122,7 +119,7 @@ public class CartViewActivity extends AppCompatActivity {
                 }
 
 
-                myAdapter = new MyAdapter(list); //, myList
+                myAdapter = new MyAdapter(list);
                 recyclerView.setAdapter(myAdapter);
 
                 Button myButton = findViewById(R.id.buttonPurchase);

@@ -5,14 +5,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-/**
- * Example local unit test, which will execute on the development machine (host).
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
- */
 public class ExampleUnitTest {
 
-    AddToCartActivity ob = new AddToCartActivity();
+    AddToCartActivity ob;
 
     @Before
     public void setupObject(){
@@ -20,12 +15,10 @@ public class ExampleUnitTest {
         ob = new AddToCartActivity();
     }
 
-    @Test // (radio id == -1) = not Selected any of radio button
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
-    }
+     // (radio id == -1) = not Selected any of radio button
 
-    @Test //for id -1 this is for unselected radio button radio id = -1 & quantity = 3
+
+    @Test //for id =-1 this is for unselected radio button radio id = -1 & quantity = 3
     public void textCalculationAddToCart() {
 
        int result = ob.addToCartTest(3, -1, "medium", "900.00", "1500.00", "2300.00");
