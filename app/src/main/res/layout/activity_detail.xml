@@ -9,6 +9,12 @@
     android:layout_margin="10dp"
     >
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/image"
+        android:scaleType="centerCrop"
+        />
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
