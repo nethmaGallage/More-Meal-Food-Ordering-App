@@ -50,7 +50,7 @@ public class AddRiders extends AppCompatActivity {
                 else if (TextUtils.isEmpty(mobile.getText().toString()))
                     Toast.makeText(getApplicationContext(), "Please enter the Mobile " , Toast.LENGTH_SHORT).show();
                 else if (TextUtils.isEmpty(email.getText().toString()))
-                    Toast.makeText(getApplicationContext(), "Please enter the " , Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Please enter the Email " , Toast.LENGTH_SHORT).show();
                 else if (TextUtils.isEmpty(address.getText().toString()))
                     Toast.makeText(getApplicationContext(),  "Please enter the " , Toast.LENGTH_SHORT).show();
                 else if (TextUtils.isEmpty(vehNumber.getText().toString()))

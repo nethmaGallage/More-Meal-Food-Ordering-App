@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/back"
     tools:context=".Insert">
 
     <Button
@@ -11,7 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="312dp"
-        android:text="Submit"
+        android:background="@drawable/button"
+        android:text=" Send Feedback"
+        app:backgroundTint="@color/Dark_Orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -20,9 +23,11 @@
         android:id="@+id/feedbck"
         android:layout_width="286dp"
         android:layout_height="266dp"
-        android:background="@drawable/button"
+        android:background="@drawable/common_google_signin_btn_icon_dark_normal_background"
         android:ems="10"
         android:inputType="textPersonName"
-        tools:layout_editor_absoluteX="71dp"
-        tools:layout_editor_absoluteY="58dp" />
+        app:layout_constraintBottom_toTopOf="@+id/sbFeedback"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

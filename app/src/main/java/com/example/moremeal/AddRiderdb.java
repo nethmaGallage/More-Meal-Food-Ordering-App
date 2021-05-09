@@ -1,6 +1,6 @@
 package com.example.moremeal;
 
-public class AddRiderdb {
+public class  AddRiderdb {
 
     String name,mobile,email,address,vehicleNum;
 

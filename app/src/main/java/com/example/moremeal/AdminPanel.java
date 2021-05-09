@@ -32,7 +32,7 @@ public class AdminPanel extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent j = new Intent(getApplicationContext(),Insert.class);
+                Intent j = new Intent(getApplicationContext(),FeedbackView.class);
                 startActivity(j);
             }
 
@@ -48,7 +48,7 @@ public class AdminPanel extends AppCompatActivity {
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent k = new Intent(getApplicationContext(), FeedbackView.class);
+                Intent k = new Intent(getApplicationContext(), Insert.class);
                 startActivity(k);
             }
         });
