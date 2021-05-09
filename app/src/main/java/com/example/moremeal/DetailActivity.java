@@ -19,12 +19,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
 public class DetailActivity extends AppCompatActivity {
-    ImageView imageView;
-    TextView tvItemName;
-    TextView tvDescription;
-    TextView tvPrice;
-    String imageUrl;
-    String key;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
