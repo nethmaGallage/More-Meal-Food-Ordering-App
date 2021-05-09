@@ -135,7 +135,11 @@ public class Login_form extends AppCompatActivity {
         if(isValid){
             String emailV = username.getText().toString();
             String passwordV = password.getText().toString();
+        if (emailV.equals("admin@admin.com") && passwordV.equals("admin1234")){
 
+            Intent toadmin = new Intent(Login_form.this,Success.class);
+            startActivity(toadmin);
+        }
             // [START sign_in_with_email]
             mAuth.signInWithEmailAndPassword(emailV, passwordV)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -152,7 +156,7 @@ public class Login_form extends AppCompatActivity {
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w(TAG, "signInWithEmail:failure", task.getException());
-                                Toast.makeText(Login_form.this, "Authentication failed.",
+                                Toast.makeText(Login_form.this, "Authentication failed",
                                         Toast.LENGTH_SHORT).show();
                                 updateUI(null);
                             }
@@ -164,7 +168,7 @@ public class Login_form extends AppCompatActivity {
 
         else{
 
-            Toast t = Toast.makeText(this,"Wrong email or password " ,Toast.LENGTH_SHORT);
+            Toast t = Toast.makeText(this,"Wrong email or password.Please try again " ,Toast.LENGTH_SHORT);
             t.show();
 
         }
