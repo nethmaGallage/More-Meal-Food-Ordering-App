@@ -43,6 +43,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     Model temp3;
     DatabaseReference ref;
     TextView myTextView;
+    Integer Number;
+    String Number2;
+    Double Number3;
 
     public MyAdapter( ArrayList<Model> list){
 
