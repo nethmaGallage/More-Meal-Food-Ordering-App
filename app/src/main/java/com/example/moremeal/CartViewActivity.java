@@ -45,14 +45,9 @@ public class CartViewActivity extends AppCompatActivity {
     public static  final String EXTRA_MESSAGE6= "com.example.myfirstapp.MESSAGE6";
     public static  final String EXTRA_MESSAGE7= "com.example.myfirstapp.MESSAGE7";
 
-    //variables for store values which are got by intent object
-    //String quantity;
-    //String price;  //price according to the pizza size
-    //String pizzaSize;
-    //String pizzaName;
 
-    /////modification
-   // public CartViewActivity(){};
+
+
 
 
     @Override
