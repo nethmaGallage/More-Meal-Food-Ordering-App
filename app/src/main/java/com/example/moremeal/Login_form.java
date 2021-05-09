@@ -238,7 +238,7 @@ public class Login_form extends AppCompatActivity  {
 
         else{
 
-            Toast t = Toast.makeText(this,"Wrong email or password.please try again " ,Toast.LENGTH_SHORT);
+            Toast t = Toast.makeText(this,"Wrong email or password " ,Toast.LENGTH_SHORT);
             t.show();
 
         }
