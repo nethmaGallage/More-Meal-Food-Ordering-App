@@ -24,7 +24,7 @@ public class First_Launch extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(getApplicationContext(), Second_Launch.class);
+                Intent intent = new Intent(getApplicationContext(), Second_Launch.class); //intent activity to launch next activity
                 startActivity(intent);
 
             }
