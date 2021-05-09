@@ -92,7 +92,7 @@ public class Signup_form extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             updateUI(user);
 
-                            sendEmailVerification();
+
 
                         } else {
                             // If sign in fails, display a message to the user.
@@ -107,19 +107,6 @@ public class Signup_form extends AppCompatActivity {
     }
 
 
-    private void sendEmailVerification() {
-        // Send verification email
-        // [START send_email_verification]
-        final FirebaseUser user = mAuth.getCurrentUser();
-        user.sendEmailVerification()
-                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        // Email sent
-                    }
-                });
-        // [END send_email_verification]
-    }
 
     private void reload() { }
 
