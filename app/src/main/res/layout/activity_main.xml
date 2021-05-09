@@ -42,5 +42,25 @@
         app:backgroundTint="#FFFFFF"
         app:rippleColor="#FFF5F5" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginLeft="30dp"
+
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#FF6333"
+        android:onClick="uploadClick"
+        android:src="@drawable/uploadicon2"
+        android:tint="#1E0F0F"
+        app:backgroundTint="#FFFFFF"
+        app:rippleColor="#FFF5F5" />
+
 
 </RelativeLayout>
